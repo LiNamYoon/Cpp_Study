@@ -1,3 +1,4 @@
+// namespace_std (cout, endl, cin)에 대한 내용
 #include <iostream>
 using namespace std; // cout, endl 함수를 사용할 수 있는 namespace 
 
@@ -10,10 +11,28 @@ void main()
 	B = 20;
 	C = 35;
 	Sum = A + B + C;
-	Ar = Sum / 3;
+	Ar = Sum / (float)3; // 결과값이 소수점으로 나오려면 연산시에 float로 연산해야 한다.
 
 	cout << Sum;  // cout = 콘솔창에 텍스트를 기입할 때 사용
+	
+	cout << " / ";
 	cout << Ar << endl; // endl = 문서를 작성할 때 한줄 밑으로 내릴 때 사용
+
+	int num1, num2;
+
+	cout << "정수 1 입력 : ";
+	cin >> num1; // cin = 키보드에 입력한 내용을 num1 변수에 적용된다.
+
+	cout << "정수 2 입력 : ";
+	cin >> num2;
+
+	// 사칙연산 적용해본 예시
+	cout << num1 << " + " << num2 << " = " << num1 + num2 << endl;
+	cout << num1 << " - " << num2 << " = " << num1 - num2 << endl;
+	cout << num1 << " * " << num2 << " = " << num1 * num2 << endl;
+	cout << num1 << " / " << num2 << " = " << num1 / num2 << endl;
+
+
 
 
 };

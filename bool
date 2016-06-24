@@ -1,0 +1,47 @@
+// bool 에 대한 내용 // 관계연산자, 논리연산자
+#include <iostream>
+using namespace std; // cout, endl 함수를 사용할 수 있는 namespace 
+
+int main()
+{
+
+	bool a = true;
+
+	cout << "a= " << a << endl; // true = 1
+	a = false;
+	cout << "a= " << a << endl;	// false = 0
+	a = -98;
+	cout << "a= " << a << endl;	// 0이 아닌 값 = true = 1
+	a = 0;
+	cout << "a= " << a << endl;	// false = 0
+	return 0;
+
+
+	// 작업 내용 나누기
+	cout << "_______________________________________________________________________" << endl << endl;
+
+
+	bool a;
+
+	//관계 연산자
+	a = 100 > 200;
+	cout << "a= " << a << endl;	
+	a = 100 < 200;
+	cout << "a= " << a << endl;
+	a = 100 < 100;
+	cout << "a= " << a << endl;
+	a = 100 == 200;
+	cout << "a= " << a << endl;	// == 같은가?
+	a = 100 != 200;
+	cout << "a= " << a << endl;	// != 같지 않은가?
+
+	//논리 연산자
+	a = 100 && 100;
+	cout << "a= " << a << endl;
+	a = 100 || 100;
+	cout << "a= " << a << endl;
+
+
+
+}
+

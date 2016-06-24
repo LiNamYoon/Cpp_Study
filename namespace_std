@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std; // cout, endl 함수를 사용할 수 있는 namespace 
+
+void main()
+{
+	int Sum, A, B, C;
+	float Ar;
+
+	A = 10;
+	B = 20;
+	C = 35;
+	Sum = A + B + C;
+	Ar = Sum / 3;
+
+	cout << Sum;  // cout = 콘솔창에 텍스트를 기입할 때 사용
+	cout << Ar << endl; // endl = 문서를 작성할 때 한줄 밑으로 내릴 때 사용
+
+
+};

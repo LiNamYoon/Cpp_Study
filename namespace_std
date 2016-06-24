@@ -1,4 +1,4 @@
-// namespace_std (cout, endl, cin)에 대한 내용
+// namespace_std (cout, endl, cin)에 대한 내용 //예시) 원 둘레, 원 면적 구하는 공식
 #include <iostream>
 using namespace std; // cout, endl 함수를 사용할 수 있는 namespace 
 
@@ -11,12 +11,17 @@ void main()
 	B = 20;
 	C = 35;
 	Sum = A + B + C;
-	Ar = Sum / (float)3; // 결과값이 소수점으로 나오려면 연산시에 float로 연산해야 한다.
+	Ar = Sum / (float)3;
 
 	cout << Sum;  // cout = 콘솔창에 텍스트를 기입할 때 사용
 	
 	cout << " / ";
 	cout << Ar << endl; // endl = 문서를 작성할 때 한줄 밑으로 내릴 때 사용
+
+
+	// 작업 내용 나누기
+	cout << "_______________________________________________________________________" << endl << endl;
+	
 
 	int num1, num2;
 
@@ -34,5 +39,21 @@ void main()
 
 
 
+	// 작업 내용 나누기
+	cout << "_______________________________________________________________________" << endl << endl;
+
+
+	int r;	// 원 반지름
+	float CircleArea;	// 원 면적
+	float Circleference;	// 원 둘레
+	
+	cout << "반지름 입력 : ";
+	cin >> r; //반지름 기입
+
+	CircleArea = r*r*(float)3.14; // 원 면적 공식
+	Circleference = 2 * r*(float)3.14; // 원 둘레 공식
+
+	cout << "원 면적 : " << CircleArea << endl;
+	cout << "원 둘레 : " << Circleference << endl;
 
 };

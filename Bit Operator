@@ -1,0 +1,39 @@
+// 비트 연산자에 대한 내용
+// 비트 연산자는 암호화 할 때 주로 사용을 한다.
+#include <iostream>
+using namespace std; // cout, endl 함수를 사용할 수 있는 namespace 
+
+int main()
+{
+
+	int num1 = 1234; 
+	int num2=0x12345678; //0x = 10진수
+
+	cout << dec << "a= " << num1 << endl;	//dec 10진수로 표기
+	cout << hex << "a= " << num1 << endl;	//hex 16진수로 표기
+	cout << dec << "b= " << num2 << endl;
+	cout << hex << "b= " << num2 << endl;
+	
+
+	
+	
+
+	// 작업 내용 나누기
+	cout << "_______________________________________________________________________" << endl << endl;
+
+	int a = 0x12345678, b, c, d, e;
+
+	b = a >> 4; // 오른쪽으로 4비트 이동한 값
+	c = a << 4;	// 왼쪽으로 4비트 이동한 값
+	d = a^b;	// a와 b 동일한 값은 거짓 / 서로 다른 값은 참
+	e = ~a;		// ~부정 기호
+
+	cout << hex << "16진수 b= " << b << dec << "\t10진수 b= " << b << endl;
+	cout << hex << "16진수 c= " << c << dec << "\t10진수 c= " << c << endl;
+	cout << hex << "16진수 d= " << d << dec << "\t10진수 d= " << d << endl;
+	cout << hex << "16진수 e= " << e << dec << "\t10진수 e= " << e << endl;
+
+	return 0;
+
+
+}

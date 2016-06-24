@@ -1,0 +1,31 @@
+// 실수를 반올림 시키는 공식
+#include <iostream>
+using namespace std; // cout, endl 함수를 사용할 수 있는 namespace 
+
+int main()
+{
+	float num;
+	int n, i, imsi;
+
+	cout << "실수 입력 : ";		// 34.576
+	cin >> num;
+	cout << "반올림자릿수 입력 : "; //2
+	cin >> n;
+
+	for (i = 0; i < n; i++) // for문으로 반복시킨다.
+	{
+		num = num * 10;	// 결과값 3457.6 
+	}
+
+	num = num + 5; //반올림할 위치에 5를 더한다. 3462.6
+	imsi = (int)num/10; // 해당 결과값에 소수점을 올리고 int 형으로 변환하여 나머지를 때고 imsi 저장시킨다. //346
+	num = (float)imsi;	// imsi에 저장된 수치를 float로 변환하여 num으로 다시 넘긴다.
+
+	for (i = 0; i < n-1; i++) //이전 연산에서 소수점을 한번 올렸기 때문에 n에서 1를 빼고 for문을 반복시킨다. 
+	{
+		num = num / 10; //기존의 소수점위치로 변경시킨다. 34.6
+	}
+	cout << "반올림 결과값 : " << num << endl; 
+
+	return 0; //void가 아닌 int main()이라서 return을 해주어야 한다.
+}

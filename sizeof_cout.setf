@@ -1,0 +1,46 @@
+//sizeof() 해당 변수의 크기를 알려주는 코드 // cout.setf = 출력할 때 소수점 이하값을 출력할 때 사용
+#include <iostream>
+using namespace std; // cout, endl 함수를 사용할 수 있는 namespace 
+
+
+int main()
+{
+	//sizeof() 해당 변수의 크기를 알려주는 코드
+	cout << "int형 변수의 크기 : " << sizeof(int) << "바이트" << endl;
+	cout << "char형 변수의 크기 : " << sizeof(char) << "바이트" << endl;
+	cout << "double형 변수의 크기 : " << sizeof(double) << "바이트" << endl;
+	cout << "float형 변수의 크기 : " << sizeof(float) << "바이트" << endl;
+
+	
+
+
+	// 작업 내용 나누기
+	cout << "_______________________________________________________________________" << endl << endl;
+
+	int num1, num2;
+	int sum, sub, mul, div1;
+	double div2;
+
+	cout.setf(ios::fixed, ios_base::floatfield); // cout.setf = 출력할 때 소수점 이하값을 출력할 때 사용 
+	cout << "정수 입력 : ";
+	cin >> num1;
+
+	cout << "정수 입력 : ";
+	cin >> num2;
+
+	sum = num1 + num2;
+	sub = num1 - num2;
+	mul = num1 * num2;
+	div1 = num1 / num2;
+	div2 = num1 / num2;
+
+	cout << "더하기 결과 : " << sum << endl;
+	cout << "빼기 결과 : " << sub << endl;
+	cout << "곱하기 결과 : " << mul << endl;
+	cout << "나누기(int) 결과 : " << div1 << endl;
+	cout << "나누기(double) 결과 : " << div2 << endl; // 연산을 int로만 했기 때문에 소수 결과값이지만 소수점 이하값을 없애고 정수의 소수점 값이 나온다.
+	div2 = num1 / (double)num2;
+	cout << "나누기(double) 결과 : " << div2 << endl; // 연산에 double 변수가 있기 때문에 정확한 소수점으로 나온다.
+
+	return 0;
+}

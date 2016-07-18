@@ -38,6 +38,6 @@ void main(void)
 	{
 		printf("개별 과목 불합격\n");
 	}
-
+//
 
 }

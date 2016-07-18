@@ -72,7 +72,7 @@ void main(void)
 	printf("입력한 숫자는 %d 입니다.", keyboard);
 	printf("",keyboard);
 	*/
-	// ----------
+
 
 
 

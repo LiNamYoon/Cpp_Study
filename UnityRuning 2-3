@@ -1,0 +1,28 @@
+// 유니티 러닝센터 C++ 수업내용 2-3
+// 사용 기술 : 
+#include<stdio.h>
+void main(void)
+{
+	int loop = 1;
+	while (loop <= 10)
+	{
+		
+		
+
+		// continue를 실행하는 순간 반복문 위쪽으로 올라가서 무한 루프.
+		// 특정 조건에 걸릴경우 그것을 하지 마라
+		// 사용예제 )  크리티컬 히트
+		if (loop == 5) 
+		{
+			loop++;
+			continue; 
+		}
+		printf("%d ", loop);
+		loop++;
+		
+		//if (loop == 5) { break; }//while문 아래로 빠져나가기
+		
+		
+
+	}
+}

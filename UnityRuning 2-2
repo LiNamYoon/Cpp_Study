@@ -1,0 +1,35 @@
+// 유니티 러닝센터 C++ 수업내용 2-2
+// 사용 기술 : strcmp() / 
+
+// 헤더파일영역
+// 특정명령어(함수) 를 사용하고 싶을시 이것을 로딩해야한다.
+#include<stdio.h> //printf(), scanf() 사용하기 위한 헤더파일 stdio.h
+#include<string.h> //strcmp() 사용하기 위한 헤더파일 string.h
+void main(void)
+{
+	/*
+	무기의 이름이 들어가는 인벤토리를 만들고, 
+	그 인벤토리에서 내가 원하는 무기를 지정하면,
+	해당 무기이름 출력된다.
+	*/
+	char Weapon[11]; // 최대 10글자까지 저장가능(10글자+0)
+	scanf("%s", Weapon);
+	/*printf("%s", Weapon);
+
+	int result = strcmp("abc", Weapon);
+	printf("%d", result);*/
+
+	//// strcmp : 문자열을 비교해주는 함수(function)
+	//// 같을 경우(0) - 리턴값(어떤명령어의 처리결과를 통지받는것)
+	//// 틀렸을 경우 (왼쪽이 길면 1 / 오른쪽이 길면 -1)
+	//int result = strcmp("abc", "abc");
+	//printf("%d", result);
+	
+
+	// 입력한 무기와 같은 이름을 가진것이 있는가? (strcmp사용)
+	if (strcmp("총", Weapon)==0) { printf("%s \n", Weapon);	}
+	else if (strcmp("로켓", Weapon)==0) { printf("%s \n", Weapon);	}
+	else if (strcmp("바주카", Weapon)== 0) { printf("%s \n", Weapon);	}
+	else if (strcmp("검", Weapon)== 0) { printf("%s \n", Weapon);	}
+	else { printf("그런거 없음 \n" ); }
+}

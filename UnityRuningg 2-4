@@ -1,0 +1,53 @@
+// 유니티 러닝센터 C++ 수업내용 2-4
+// 사용 기술 : 구조체 / strcpy()
+#include<stdio.h>
+#include<string.h>
+
+// 종류가 여러가지인 데이터들을 묶어서 저장할 수 있는 기술(구조체)
+// 문자,숫자를 동시에 저장해보자.
+// 이런 저장소를 앞으로 사용할 것이다.(설계도)
+// 던전에 생성되는 괴물의 속성을 묶어놓은것
+struct Date
+{
+	char name[10]; // 이름
+	int health; // 체력(int의 한계치 : (unsigned = -를 포기하고 +영역을 2배로)
+	char weapon; //무기
+	int pos[2]; // 생성위치
+};
+
+void main(void)
+{
+	// 내가 직접디자인한 저장소를 사용해서 데이터를 저장해보자.
+	struct Date date1,date2;
+
+	// strcpy를 사용하면 실제이름을 배열에 넣을수 있다.
+	
+
+	// 1번 몬스터 속성
+	strcpy(date1.name, "orc");
+	date1.health = 100;
+	date1.weapon = 'a';
+	date1.pos[0] = 0;
+	date1.pos[1] = 51;
+	// 2번 몬스터 속성
+	strcpy(date2.name, "troll");
+	date2.health = 200;
+	date2.weapon = 'b';
+	date2.pos[0] = 12;
+	date2.pos[1] = 30;
+
+	// 두 괴물의 이름
+	printf("현재 가지고 있는 몬스터 : %s %s \n\n", date1.name, date2.name);
+
+	// 두 괴물의 현재 체력
+	printf(
+		"A몬스터 이름 : %s\n%s의 체력 :%d \n\nB몬스터 이름 : %s\n%s의 체력 :%d\n\n", 
+		date1.name, date1.name, date1.health, date2.name, date2.name,date2.health);
+
+	printf("%s의 무기는 %c\n%s의 무기는 %c\n\n", 
+		date1.name, date1.weapon, date2.name, date2.weapon);
+
+	
+	
+	
+}

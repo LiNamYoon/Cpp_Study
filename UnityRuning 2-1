@@ -1,0 +1,62 @@
+// 유니티 러닝센터 C++ 수업내용 2-1
+// 사용 기술 : 배열정의 / 배열 출력 / 반복문으로 배열 출력 / 반복문으로 배열 반대로 출력 
+
+
+#include<stdio.h>
+void main(void)
+{
+	// 배열 정의 
+	char charDate[5] = { 'A','B', 'C', 'D', 'E' };
+	int intDate[5] = { 1,2,3,4,5 };
+	float floatDate[5] = { 0.1f,0.2f,0.3f,0.4f,0.5f };
+	
+	// 배열 출력하기
+	printf("%c %c %c %c %c \n", charDate[0], charDate[1], charDate[2], charDate[3], charDate[4]);
+	printf("%d %d %d %d %d \n", intDate[0], intDate[1], intDate[2], intDate[3], intDate[4]);
+	printf("%.1f %.1f %.1f %.1f %.1f \n", floatDate[0], floatDate[1], floatDate[2], floatDate[3], floatDate[4]);
+
+	// 반복문으로 배열 출력하기
+	for (int i = 0; i < 5; i++)
+	{
+		printf("%c ", charDate[i]);
+	}
+	printf("\n");
+	// 반복문으로 배열 반대로 출력하기
+	for (int i = 0; i < 5; i++)
+	{
+		printf("%c ", charDate[4- i]);
+	}
+	printf("\n");
+
+	char keyboard;
+	char Inventory[5] = { 'A','B','C','D','E' };
+	char Search_word = scanf("%c", &keyboard);
+
+	
+	// 검색패턴 (ex. 유니크 아이템 찾기)
+	for (int i = 0; i < 5; i++)
+	{
+		// 찾는 것과 일치하는가?
+		if (Inventory[i-1] == Search_word)
+		{
+			printf("찾은 아이템 : %c ", Inventory[i - 1]);
+			printf("\n");
+		}
+
+	}
+
+	// 게임에서 키보드를 누를면 특정무기로 바뀌는 것
+
+	char _keyboard;
+	scanf("%c", &_keyboard);
+
+	switch (keyboard)
+	{
+	case 'G': {printf("Gun"); break; }
+	case 'L': {printf("Laser Gun"); break; }
+	case 'R': {printf("Rocket Launcher"); break; }
+	case 'B': {printf("BFG-9000"); break; }
+	case 'P': {printf("Plasma-Lifle"); break; }
+
+	}
+}

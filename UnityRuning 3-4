@@ -1,0 +1,104 @@
+// 유니티 러닝센터 C++ 수업내용 3-4 응용
+// 사용 기술 : 원하는 행동 버튼을 누르면 그에 맞게 행동하고 결과 값을 보여주는 프로그램
+
+#include <stdio.h>
+#include <string.h>
+
+struct Player
+{
+	char name[20];
+	int hp;
+	int sp;
+	int weapon;
+	int weaponHP;
+	
+
+};
+
+void Characterprofile(struct Player *pointer_Player)
+{
+	strcpy(pointer_Player->name, "나영웅");
+	pointer_Player->hp = 1000;
+	pointer_Player->sp = 200;
+	pointer_Player->weapon = 1;
+	pointer_Player->weaponHP = 100;
+}
+
+
+
+void Attack(struct Player *pointer_Player)
+{
+	pointer_Player->weaponHP -= 1;
+}
+void Work(struct Player *pointer_Player)
+{
+	pointer_Player->sp -= 5;
+}
+void Run(struct Player *pointer_Player)
+{
+	pointer_Player->sp -= 10;
+}
+void Damage(struct Player *pointer_Player)
+{
+	pointer_Player->hp -= 20;
+}
+
+void PlayNumberCheck(struct Player A)
+{
+	int key;
+
+	printf("\n----행동을 선택하세요----\n1 = 공격 \n2 = 걷기 \n3 = 뛰기 \n4 = 공격당함 \n\n 행동 번호 입력 : ");
+	scanf("%d", &key);
+
+	if (key == 1)
+	{
+
+		Attack(&A);
+		printf("\[System] - 캐릭터가 공격했다.\n");
+		printf("[System] - 무기의 내구도가 감소했다.\n");
+		printf("[System] - 남은 내구도 : %d\n", A.weaponHP);
+		
+		PlayNumberCheck(A);
+	}
+
+	else if (key == 2)
+	{
+		Work(&A);
+		printf("\n[System] - 캐릭터가 걸어 간다.\n");
+		printf("[System] - 스테미나가 감소했다.\n");
+		printf("[System] - 남은 스테미나 : %d\n", A.sp);
+		
+		PlayNumberCheck(A);
+	}
+	else if (key == 3)
+	{
+		Run(&A);
+		printf("\[System] - 캐릭터가 뛰어 간다.\n");
+		printf("[System] - 스테미나가 감소했다.\n");
+		printf("[System] - 남은 스테미나 : %d\n", A.sp);
+		
+		PlayNumberCheck(A);
+	}
+	else if (key == 4)
+	{
+		Damage(&A);
+		printf("\[System] - 캐릭터가 공격 당했다.\n");
+		printf("[System] - 체력이 감소했다.\n");
+		printf("[System] - 남은 체력 : %d\n", A.hp);
+		
+		PlayNumberCheck(A);
+	}
+	else
+	{
+		printf("\nSystem - 할수 있는 행동이 없습니다.\n");
+
+		PlayNumberCheck(A);
+	}
+}
+
+void main(void)
+{
+	struct Player A;
+	Characterprofile(&A);
+	PlayNumberCheck(A);
+}

@@ -1,0 +1,51 @@
+// 유니티 러닝센터 C++ 수업내용 3-2
+// 사용 기술 : function()으로 데이터 순환 (포인터 사용) / 배열에서 포인터 사용/ 구조체에서 포인터 사용
+
+#include <stdio.h>
+#include <string.h>
+
+struct Date
+{
+	char a[4];
+	int b;
+	float c;
+};
+
+void main(void)
+{
+
+	// 구조체에서 포인터 사용하기-----------------------------------------------
+	struct Date monster;
+	struct Date *Pointer_monster;
+
+	strcpy(monster.a,"fff");
+	//monster.a[4] ={ 'a','b','c' };
+
+	monster.b = 123;
+	monster.c = 3.11;
+
+	Pointer_monster = &monster;
+
+	// ->를 사용해서 접근한다. 
+	printf("%s \n %d %f", Pointer_monster->a, Pointer_monster->b, Pointer_monster->c);
+	//printf("%c \n", Pointer_monster->a+1);
+
+	//
+	//// 배열에서 포인터 사용하기-----------------------------------------------
+	//char date[5] = {'a', 'b', 'c', 'd', 'e'};
+	//char *p_date = 0; // pointer
+
+	//// 메모리주소를 저장가능함.
+	//p_date = &(date[0]); // 배열 시작위치
+
+	//printf("[%c]", *p_date);// *을 붙이면 해당 메모리주소의 데이터를 불러옴
+	//printf("[%c]", *(p_date + 1));
+	//printf("[%c]", *(p_date - 1));
+	///*
+	//printf("date의 메모리위치 %d \n", &date);	//address
+
+	//printf("date의 메모리위치 %d \n", p_date);	//address
+
+	//printf("date의 저장된 값 %c \n", date);	//date
+	//*/
+}

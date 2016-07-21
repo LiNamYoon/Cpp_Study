@@ -1,0 +1,118 @@
+// 유니티 러닝센터 C++ 수업내용 3-1
+// 사용 기술 : function()으로 데이터 순환 (배열/구조체 사용) 
+
+#include <stdio.h>
+#include <string.h>
+
+struct Monster
+{
+	char name[10]; // 이름
+	int health; // 체력(int의 한계치 : (unsigned = -를 포기하고 +영역을 2배로)
+	int weapon; //무기
+
+};
+
+// function 위치 
+// 형식 펑션이름 (매게변수)
+// C# 에서 메소드와 흡사한 형식
+//void func1(int a, int b, char c)
+//{
+//	printf("Call 성공\n");
+//	printf("전달받은 데이터 : %d / %d / %c \n", a,b,c);
+//	a = a - 1;
+//
+//	b = a + b;
+//
+//
+//	//return 
+//
+//	printf("가공된 데이터 :  %d / %d / %c \n", a, b, c);
+//}
+//int work(int a, int b)
+//{
+//	return(a + b);
+//}
+//
+//int func1(int a)
+//{
+//	printf("Call 성공\n");
+//	printf("전달받은 데이터 :  %d \n", a);
+//	a = a - 1;
+//
+//
+//	return(a); // 리턴은 한번에 하나만 전송가는 (여러개 리턴은 배열 또는 구조체 사용해야함)
+//
+//	
+//}
+// function 배열 사용하기
+void String_Save(char[5])
+{
+
+}
+
+
+
+void main(void)
+{
+	// 
+
+
+	struct Monster date1, date2;
+
+	strcpy(date1.name, "orc");
+	date1.health = 100;
+	date1.weapon = 1;
+
+	
+	//int result = func1(100); // function call이라고 부름
+	//printf(" %d \n", result);
+
+	//int sum = work(2, 5);
+	//printf(" %d \n", sum);
+
+	char Date[5] = { 'A','B','C','D','E' };
+	String_Save(Date);
+
+	// 배열 데이터 출력하기
+	printf("[%c][%c][%c][%c][%c]\n", Date[0], Date[1], Date[2], Date[3], Date[4]);
+	// 반복문으로 배열 데이터 출력하기
+	for (int i = 0; i < 5; i++)
+	{
+		printf("[%c]", Date[i]);
+	}
+	//strcpy(date2.name, "troll");
+	//date2.health = 200;
+	//date2.weapon = 1;
+	//date2.weapon = 3;
+	//date2.weapon = 4;
+
+	//// 현재 고물이 가지고 있는 무기의 종류를 화면에 출력시키주는 코드를 추가
+
+	//// switch 나 if ~ else if를 사용 할 것
+
+	//// 무기의 종류 정의 1. 도끼 2. 칼 3. 총 4. 로켓포
+
+	//// 괴물의 정보를 출력할 때 이름, 무기, 2가지만 출력
+	//
+	//if (date1.weapon ==1 )
+	//{ 
+	//	printf("소유하고 있는 무기 도끼 \n");
+	//}
+	//else if (date1.weapon == 2)
+	//{
+	//	printf("소유하고 있는 무기 칼 \n");
+	//}
+	//else if (date1.weapon == 3)
+	//{
+	//	printf("소유하고 있는 무기 총 \n");
+	//}
+	//else if (date1.weapon == 4)
+	//{
+	//	printf("소유하고 있는 무기 로켓포 \n");
+	//}
+	//else { printf("그런거 없음 \n"); }
+
+
+
+
+}

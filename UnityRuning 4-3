@@ -1,0 +1,29 @@
+// 유니티 러닝센터 C++ 수업내용 4-3
+// 사용 기술 : 구조체를 배열로 만들기
+
+#include<stdio.h>
+#include<string.h>
+//-----------------------
+struct Monster
+{
+	char m_name[10];
+	int m_hp;
+};//-----------------------
+void main(void)
+{
+	struct Monster m[2];//2마리생성(일괄적인관리가가능-번호에따른)
+	strcpy(m[0].m_name, "orc");//2마리의 데이터초기화시킴.확인
+	m[0].m_hp = 1000;
+	strcpy(m[1].m_name, "troll");
+	m[1].m_hp = 100;
+	printf("orc(0번괴물)이름:%s\n", m[0].m_name);
+	printf("orc(0번괴물)체력:%d\n", m[0].m_hp);
+	printf("troll(1번괴물)이름:%s\n", m[1].m_name);
+	printf("troll(1번괴물)체력:%d\n", m[1].m_hp);
+	//2마리의 데이터변경.확인
+	m[0].m_hp = 23;
+	m[1].m_hp = 12;
+	printf("orc(0번괴물)체력:%d\n", m[0].m_hp);
+	printf("troll(1번괴물)체력:%d\n", m[1].m_hp);
+
+}

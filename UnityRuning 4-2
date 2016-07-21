@@ -1,0 +1,40 @@
+// 유니티 러닝센터 C++ 수업내용 4-2
+// 사용 기술 : system("cls") / getch() / swith()
+
+#include <stdio.h>
+#include <string.h>
+#include <Windows.h> // 윈도우 전용(비표준헤더파일) - system("cls")사용가능
+#include <conio.h> // 윈도우 전용(비표준헤더파일) - getch()를 사용하기 위한 해더
+void main(void)
+{
+	int key; // 입력받은 키 값을 저장할 곳
+
+	while (1) // 1 이면 무조건 True
+	{
+		
+		printf("게임 시작 = 1 \n ");
+		printf("옵션 = 2 \n ");
+		printf("나가기 = 3 \n ");
+		printf("원하는 숫자를 기입하세요 : ");
+		scanf("%d", &key);
+		
+
+		switch (key)
+		{
+		case 1: 
+		{
+			printf("GameStart \n");
+			break;
+		}
+		case 2: {printf("Options \n"); break; }
+		case 3: {printf("Bye \n");  break; }
+		}
+		if (key == 3) {/*데이터 저장*/ return; } // 시스템 종료를 위한 편법 return.. 데이터가 날라감;
+
+		// 화면을 여기서 지워주세요 !! (콘솔창에서 화면지울때 cls 사용
+		// 여기서 잠깐 화면을 멈춰준다.(입력함수계열을 사용)
+		getch(); // 키보드 아무거나 한개 입력하면 바로 반응
+		system("cls"); //화면지우기
+	}
+
+}

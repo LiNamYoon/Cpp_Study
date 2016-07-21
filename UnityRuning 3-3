@@ -1,0 +1,28 @@
+// 유니티 러닝센터 C++ 수업내용 3-3
+// 사용 기술 : function()으로 데이터 순환 (포인터 사용) / 배열에서 포인터 사용/ 구조체에서 포인터 사용
+
+#include <stdio.h>
+#include <string.h>
+struct Monster
+{
+	char name[10];	// 이름
+	int hp;			// 체력
+	int mp;			// 마나
+};
+void Init_Character(struct Monster *pointer_Monster)
+{
+	// main이 넘겨준 캐릭터의 정보를 여기서 채워준다
+	strcpy(pointer_Monster->name, "오크");
+	pointer_Monster->hp = 100;
+	pointer_Monster->mp = 50;
+}
+
+
+void main(void)
+{
+	struct Monster A; // 캐릭터 생성
+	// 캐릭터데이터 초기화
+	Init_Character(&A);	//캐릭터 정보의 (메모리주소)
+	// 캐릭터 정보를 출력	ex)펑션 접근을 최소화 하면 최적화됨
+	printf("캐릭터 이름 : [%s] \n체력 : [%d]\n마나 : [%d]\n", A.name, A.hp, A.mp);
+}

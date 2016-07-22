@@ -1,0 +1,159 @@
+// 유니티 러닝센터 C++ 수업내용 4-4 응용
+// 사용 기술 : system("cls") / 
+
+#include <stdio.h>
+#include <string.h>
+#include <Windows.h> //윈도우 전용 해더 - system("cls")사용가능
+#include <stdlib.h> // rand() 사용가능 해더
+#include <time.h> 
+#include <conio.h> // 윈도우 전용(비표준헤더파일) - getch()를 사용하기 위한 해더
+
+int i;
+int key;
+
+
+// 몬스터 정보 종류 모음==================================================================================================================
+struct Monster_Information
+{
+	char Monster_Name[20];
+	float Monster_HealthPoint;
+	float Monster_Damage;
+	float Monster_Defense;
+};
+// 플레이어 정보 종류 모음===================================================================================================================
+struct Player_Information
+{
+	char Player_Name[20];
+	float Player_HealthPoint;
+	float Player_Damage;
+	float Player_Defense;
+
+};
+// 몬스터 세부 정보 모음===================================================================================================================
+void Monster_Resume(struct Monster_Information *_Pointer_Monster)
+{
+	strcpy(_Pointer_Monster->Monster_Name, "오크");
+	_Pointer_Monster->Monster_HealthPoint = 500;
+	_Pointer_Monster->Monster_Damage = 40.5f;
+	_Pointer_Monster->Monster_Defense = 20.5f;
+
+}
+// 플레이어 세부 정보 모음===================================================================================================================
+void Player_Resume(struct Player_Information *_Pointer_Player)
+{
+	strcpy(_Pointer_Player->Player_Name, "용사");
+	_Pointer_Player->Player_HealthPoint = 500;
+	_Pointer_Player->Player_Damage = 30.5f;
+	_Pointer_Player->Player_Defense = 35.5f;
+
+}
+// 몬스터 행동 모음===================================================================================================================
+void Monster_Attack(struct Monster_Information *Pointer_Monster, struct Player_Information *Pointer_Player)
+{
+	Pointer_Player->Player_HealthPoint -= Pointer_Monster->Monster_Damage;
+}
+void Monster_Defense(struct Monster_Information *Pointer_Monster, struct Player_Information *Pointer_Player)
+{
+	Pointer_Monster->Monster_HealthPoint -= (Pointer_Player->Player_Damage - Pointer_Monster->Monster_Defense);
+}
+// 플레이어 행동 모음===================================================================================================================
+void Player_Attack(struct Monster_Information *Pointer_Monster, struct Player_Information *Pointer_Player)
+{
+	Pointer_Monster->Monster_HealthPoint -= Pointer_Player->Player_Damage;
+}
+void Player_Defense(struct Monster_Information *Pointer_Monster, struct Player_Information *Pointer_Player)
+{
+	Pointer_Player->Player_HealthPoint -= (Pointer_Monster->Monster_Damage - Pointer_Player->Player_Defense);
+}
+
+
+
+// 몬스터 행동 패턴======================================================================================================================
+void Monster_AI(struct Monster_Information Pointer_Monster, struct Player_Information Pointer_Player)
+{
+	if (i == 0)
+	{
+		Monster_Attack(&Pointer_Monster, &Pointer_Player);
+		printf("[%s]가(이) [%.1f]의 공격을 가했다.\n", Pointer_Monster.Monster_Name, Pointer_Monster.Monster_Damage);
+
+	}
+	else if (i == 1 && key == 1)
+	{
+		Monster_Defense(&Pointer_Monster, &Pointer_Player);
+		printf("[%s]가(이) 방어자세를 취했다.\n", Pointer_Monster.Monster_Name);
+
+	}
+	else if (i == 1 && key == 2)
+	{
+
+		printf("[%s]가(이) 방어자세를 취했다.\n", Pointer_Monster.Monster_Name);
+
+	}
+	else if (i == 2)
+	{
+		printf("[%s]가(이) 아무것도 하지 않았다.\n", Pointer_Monster.Monster_Name);
+
+
+	}
+	printf("[%s]가(이) [%.1f]의 체력이 남아있다.\n", Pointer_Player.Player_Name, Pointer_Player.Player_HealthPoint);
+	printf("[%s]가(이) [%.1f]의 체력이 남아있다.\n", Pointer_Monster.Monster_Name, Pointer_Monster.Monster_HealthPoint);
+
+	getch();
+	system("cls");
+}
+// 플레이어 행동 선택======================================================================================================================
+void Player_PlayChose(struct Monster_Information Pointer_Monster, struct Player_Information Pointer_Player)
+{
+	if (key == 1)
+	{
+		Player_Attack(&Pointer_Monster, &Pointer_Player);
+		printf("[%s]가(이) [%.1f]의 공격을 가했다.\n", Pointer_Player.Player_Name, Pointer_Player.Player_Damage);
+				
+		Monster_AI(Pointer_Monster, Pointer_Player);
+	}
+	else if (key == 2 && i == 0)
+	{
+		Player_Defense(&Pointer_Monster, &Pointer_Player);
+		printf("[%s]가(이) 방어자세를 취했다.\n", Pointer_Player.Player_Name);
+				
+		Monster_AI(Pointer_Monster, Pointer_Player);
+	}
+	else if ((key == 2 && i == 1) || (key == 2 && i == 2))
+	{
+		printf("[%s]가(이) 방어자세를 취했다.\n", Pointer_Player.Player_Name);
+				
+		Monster_AI(Pointer_Monster, Pointer_Player);
+
+	}
+	else
+	{
+		printf("지정된 행동이 아닙니다. 다시 입력해주세요.");
+		scanf("%d", &key);
+	}
+}
+
+void main(void)
+{
+
+	srand((unsigned)time(NULL));
+
+
+	struct Monster_Information Pointer_Monster;
+	struct Player_Information Pointer_Player;
+
+	Monster_Resume(&Pointer_Monster);
+	Player_Resume(&Pointer_Player);
+	
+
+	while (true)
+	{
+		i = rand() % 2;
+		key;
+
+		printf("\n----행동을 선택하세요----\n1 = 공격 \n2 = 방어 \n\n 행동 번호 입력 : ");
+		scanf("%d", &key);
+
+		Player_PlayChose(Pointer_Monster, Pointer_Player);
+
+	}
+}

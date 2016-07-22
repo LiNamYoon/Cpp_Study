@@ -1,0 +1,50 @@
+// 유니티 러닝센터 C++ 수업내용 5-2
+// 사용 기술 : 셋터 (setter) / 겟터 (Getter) / # include <iostream> / std::cout을 제공 / cin
+
+//#include<stdio.h>
+# include <iostream> // std::cout을 제공 // cin 
+
+using namespace std; // std namespace를 사용할 수 있게 함. 즉, cout, endl을 std::cout 같이 길게 안 써도 되게 함.
+
+class Data
+{
+private:  // lock  //권한을 먼저 한번 선언해준다. C++의 특징 / C에서는 구조체 (권한 종류 : public / private)
+	char a;
+	int b;
+	float c;
+
+public:   // unlock
+
+	// 셋터 (setter) :  private 한 데이터에 변경시켜주는 
+	void Input_Date(int n) // 전달받은 데이터를 같은 맴버 변수에 저장한다.
+	{
+		b = n; 
+
+	}
+	// 겟터 (Getter) : private 한 데이터에 사용하는
+	void Output_Data(void)
+	{
+		cout << b << endl;
+	}
+};
+
+
+void main() 
+{
+	cout << "Hello, world!" << endl;
+
+	Data d; // 객체
+
+	//// 해당 클래스의 함수가 public 되어있어야 데이터 대입이 가능하다.
+	//d.a = 'x';	//맴버변수(프로퍼티)
+	//d.b = 1;
+	//d.c = 1.1111f;
+	//cout << d.a << endl;
+	//cout << d.b << endl;
+	//cout << d.c << endl;
+
+	d.Input_Date(123);
+
+	d.Output_Data(); // 맴버함수(매소드)
+
+}

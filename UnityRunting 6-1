@@ -1,0 +1,58 @@
+// 유니티 러닝센터 C++ 수업내용 6-1
+// 사용 기술 : Orc :: 클래스 소속
+#include<stdio.h>
+#include<string.h>
+//*************************************
+class Orc
+{
+private:
+	char o_name[10]; int o_hp;//이름,체력 
+public:
+	//이 부분을 생성자로 바꿔줘야함.(메인함수쪽에서 이름/체력을 전달해주는 방식으로 변경되어야함)
+	//객체가 생성되면서 자동으로 채워진다는것이 포인트 !!
+	//기본생성자라고 부르는것 (전달받는데이터가없는 생성자.이것은무조건 클래스에있어야함)
+	Orc() {}
+	//실제로 사용할 생성자(전달받은 데이터로 내부변수들을 채워줌)
+	Orc(char o_n[10], int o_h)
+	{
+		strcpy(o_name, o_n);
+		o_hp = o_h;
+	}
+	//******************************************
+	void Orc::Dead(void) { printf("죽었다\n"); }
+	void Orc::Damaged(void) { printf("데미지입었음\n"); }
+	
+
+	void Orc :: Display_Info(void)	// orc클래스 소속이다.
+	{
+		printf("%s %d\n", o_name, o_hp);
+	}
+};
+//*************************************
+void main(void)
+{
+	//객체생성(오크를만듬)
+	//정보채움(Init_Info)
+	//공격당함(Damaged)
+	//정보확인(Display_Info)
+	//죽었음(Dead)
+	//구조체(구조체변수) ---> 클래스(오브젝트)
+	//일반함수 ---> 소속이있는함수(멤버함수)
+	class Orc o("보스", 10000);//보스캐릭터 1개생성
+								//o.Init_Info();//정보채움
+	class Orc o1("오크병사", 55);
+	class Orc o2("오크궁수", 11);
+	
+	o.Damaged();//공격당함
+	o.Display_Info();//정보확인
+	o.Dead();//죽었음
+
+	o1.Damaged();//공격당함
+	o1.Display_Info();//정보확인
+	o1.Dead();//죽었음
+
+	o2.Damaged();//공격당함
+	o2.Display_Info();//정보확인
+	o2.Dead();//죽었음
+}
+
